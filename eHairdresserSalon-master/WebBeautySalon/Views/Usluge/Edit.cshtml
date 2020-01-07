@@ -1,0 +1,23 @@
+﻿@model IEnumerable<eHairdresserSalon_API.Models.Usluge_Result>
+
+@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<body>
+    @foreach(var item in Model)
+    {
+        @item
+    }
+</body>
+</html>

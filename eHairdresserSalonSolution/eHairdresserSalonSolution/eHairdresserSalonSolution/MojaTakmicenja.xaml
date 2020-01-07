@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.MojaTakmicenja">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" >
+                <Label x:Name="errLabel" IsVisible="false" Text="Nemate prijavljenih takmičenja." TextColor="Red" FontSize="20" HorizontalTextAlignment="Center" 
+                       VerticalOptions="CenterAndExpand"></Label>
+                <ListView x:Name="listaTakmicenja" RowHeight="230">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Naziv}" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"  HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Mjesto}" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Datum, StringFormat='{}{0:dd/MM/yyyy}'}" FontAttributes="Italic" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Opis}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,2334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FrizerskiSalonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DodatniTretmani">
+          <Key>
+            <PropertyRef Name="TretmanID" />
+          </Key>
+          <Property Name="TretmanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivTretmana" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cijena" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="VrstaUslugeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DodatniTretmaniOcjene">
+          <Key>
+            <PropertyRef Name="TretmanOcjenaID" />
+          </Key>
+          <Property Name="TretmanOcjenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KlijentID" Type="int" Nullable="false" />
+          <Property Name="TretmanID" Type="int" Nullable="false" />
+          <Property Name="Ocjena" Type="int" Nullable="false" />
+          <Property Name="FrizerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Frizeri">
+          <Key>
+            <PropertyRef Name="FrizerID" />
+          </Key>
+          <Property Name="FrizerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProfilnaSlika" Type="varbinary(max)" />
+          <Property Name="LozinkaSalt" Type="varchar" MaxLength="30" />
+          <Property Name="LozinkaHash" Type="varchar" MaxLength="30" />
+          <Property Name="SlikaThumb" Type="varbinary(max)" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="VrstaUslugeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Klijenti">
+          <Key>
+            <PropertyRef Name="KlijentID" />
+          </Key>
+          <Property Name="KlijentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="date" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="40" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrojTelefona" Type="nvarchar" MaxLength="20" />
+          <Property Name="Napomena" Type="nvarchar" MaxLength="500" />
+          <Property Name="LozinkaSalt" Type="varchar" MaxLength="30" />
+          <Property Name="LozinkaHash" Type="varchar" MaxLength="30" />
+          <Property Name="KorisnickoIme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerminiCount" Type="int" />
+          <Property Name="Aktivan" Type="bit" />
+        </EntityType>
+        <EntityType Name="KlijentiNagrade">
+          <Key>
+            <PropertyRef Name="NagradaID" />
+            <PropertyRef Name="KlijentID" />
+          </Key>
+          <Property Name="NagradaID" Type="int" Nullable="false" />
+          <Property Name="KlijentID" Type="int" Nullable="false" />
+          <Property Name="DatumPrijave" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KlijentiTakmicenja">
+          <Key>
+            <PropertyRef Name="KlijentID" />
+            <PropertyRef Name="TakmicenjeID" />
+          </Key>
+          <Property Name="KlijentID" Type="int" Nullable="false" />
+          <Property Name="TakmicenjeID" Type="int" Nullable="false" />
+          <Property Name="DatumPrijave" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Nagrade">
+          <Key>
+            <PropertyRef Name="NagradaID" />
+          </Key>
+          <Property Name="NagradaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Od" Type="date" Nullable="false" />
+          <Property Name="Do" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skladiste">
+          <Key>
+            <PropertyRef Name="SkladisteID" />
+          </Key>
+          <Property Name="SkladisteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TretmanID" Type="int" Nullable="false" />
+          <Property Name="Kolicina" Type="int" />
+        </EntityType>
+        <EntityType Name="Takmicenja">
+          <Key>
+            <PropertyRef Name="TakmicenjeID" />
+          </Key>
+          <Property Name="TakmicenjeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="Mjesto" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="FrizerID" Type="int" />
+        </EntityType>
+        <EntityType Name="Termini">
+          <Key>
+            <PropertyRef Name="TerminID" />
+          </Key>
+          <Property Name="TerminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="Vrijeme" Type="time" Precision="7" Nullable="false" />
+          <Property Name="KlijentID" Type="int" />
+          <Property Name="FrizerID" Type="int" />
+          <Property Name="UslugaID" Type="int" />
+          <Property Name="Zauzeto" Type="bit" />
+          <Property Name="TretmanID" Type="int" />
+          <Property Name="OcijenjenaUsluga" Type="bit" />
+          <Property Name="OcijenjenTretman" Type="bit" />
+          <Property Name="prosaoTermin" Type="bit" />
+        </EntityType>
+        <EntityType Name="Usluge">
+          <Key>
+            <PropertyRef Name="UslugaID" />
+          </Key>
+          <Property Name="UslugaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivUsluge" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TrajanjeMinute" Type="int" Nullable="false" />
+          <Property Name="CijenaUsluge" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="VrstaUslugeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UslugeOcjene">
+          <Key>
+            <PropertyRef Name="UslugaOcjenaID" />
+          </Key>
+          <Property Name="UslugaOcjenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KlijentID" Type="int" Nullable="false" />
+          <Property Name="UslugaID" Type="int" Nullable="false" />
+          <Property Name="FrizerID" Type="int" Nullable="false" />
+          <Property Name="Ocjena" Type="int" Nullable="false" />
+          <Property Name="TerminID" Type="int" />
+        </EntityType>
+        <EntityType Name="VrsteUsluga">
+          <Key>
+            <PropertyRef Name="VrstaUslugeID" />
+          </Key>
+          <Property Name="VrstaUslugeID" Type="int" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DodatniTr__Frize__4AB81AF0">
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="1" />
+          <End Role="DodatniTretmaniOcjene" Type="Self.DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DodatniTr__Klije__4BAC3F29">
+          <End Role="Klijenti" Type="Self.Klijenti" Multiplicity="1" />
+          <End Role="DodatniTretmaniOcjene" Type="Self.DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DodatniTr__Tretm__4CA06362">
+          <End Role="DodatniTretmani" Type="Self.DodatniTretmani" Multiplicity="1" />
+          <End Role="DodatniTretmaniOcjene" Type="Self.DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Takmicenj__Frize__5070F446">
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="0..1" />
+          <End Role="Takmicenja" Type="Self.Takmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="Takmicenja">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__FrizerI__5165187F">
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="0..1" />
+          <End Role="Termini" Type="Self.Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__Klijent__52593CB8">
+          <End Role="Klijenti" Type="Self.Klijenti" Multiplicity="0..1" />
+          <End Role="Termini" Type="Self.Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__Tretman__534D60F1">
+          <End Role="DodatniTretmani" Type="Self.DodatniTretmani" Multiplicity="0..1" />
+          <End Role="Termini" Type="Self.Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__UslugaI__5441852A">
+          <End Role="Usluge" Type="Self.Usluge" Multiplicity="0..1" />
+          <End Role="Termini" Type="Self.Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluge">
+              <PropertyRef Name="UslugaID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="UslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Frize__5629CD9C">
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="1" />
+          <End Role="UslugeOcjene" Type="Self.UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Klije__571DF1D5">
+          <End Role="Klijenti" Type="Self.Klijenti" Multiplicity="1" />
+          <End Role="UslugeOcjene" Type="Self.UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Uslug__5812160E">
+          <End Role="Usluge" Type="Self.Usluge" Multiplicity="1" />
+          <End Role="UslugeOcjene" Type="Self.UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluge">
+              <PropertyRef Name="UslugaID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="UslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiNagrade_Klijenti">
+          <End Role="Klijenti" Type="Self.Klijenti" Multiplicity="1" />
+          <End Role="KlijentiNagrade" Type="Self.KlijentiNagrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="KlijentiNagrade">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiNagrade_Nagrade">
+          <End Role="Nagrade" Type="Self.Nagrade" Multiplicity="1" />
+          <End Role="KlijentiNagrade" Type="Self.KlijentiNagrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nagrade">
+              <PropertyRef Name="NagradaID" />
+            </Principal>
+            <Dependent Role="KlijentiNagrade">
+              <PropertyRef Name="NagradaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiTakmicenja_Klijenti">
+          <End Role="Klijenti" Type="Self.Klijenti" Multiplicity="1" />
+          <End Role="KlijentiTakmicenja" Type="Self.KlijentiTakmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="KlijentiTakmicenja">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiTakmicenja_Takmicenja">
+          <End Role="Takmicenja" Type="Self.Takmicenja" Multiplicity="1" />
+          <End Role="KlijentiTakmicenja" Type="Self.KlijentiTakmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Takmicenja">
+              <PropertyRef Name="TakmicenjeID" />
+            </Principal>
+            <Dependent Role="KlijentiTakmicenja">
+              <PropertyRef Name="TakmicenjeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skladiste_Tretmani">
+          <End Role="DodatniTretmani" Type="Self.DodatniTretmani" Multiplicity="1" />
+          <End Role="Skladiste" Type="Self.Skladiste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="Skladiste">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UslugeOcjene_Termini">
+          <End Role="Termini" Type="Self.Termini" Multiplicity="0..1" />
+          <End Role="UslugeOcjene" Type="Self.UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Termini">
+              <PropertyRef Name="TerminID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="TerminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VrstaUsluge">
+          <End Role="VrsteUsluga" Type="Self.VrsteUsluga" Multiplicity="1" />
+          <End Role="Usluge" Type="Self.Usluge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="Usluge">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VrstaUslugeDT">
+          <End Role="VrsteUsluga" Type="Self.VrsteUsluga" Multiplicity="1" />
+          <End Role="DodatniTretmani" Type="Self.DodatniTretmani" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="DodatniTretmani">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VrtseUsluga_Frizeri">
+          <End Role="VrsteUsluga" Type="Self.VrsteUsluga" Multiplicity="0..1" />
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="Frizeri">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="esp_DodatniTretmaniOcjene_SelectTretmanByVrstaUsluge" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_DodatniTretmani_Ocjene" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_DodatniTretmani_Recommender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uslugaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_DodatniTretmani_SearchByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tretmanID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_DodatniTretmani_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_DodatniTretmani_SelectByNaziv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NazivTretmana" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_DodatniTretmani_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TretmanID" Type="int" Mode="In" />
+          <Parameter Name="NazivTretmana" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cijena" Type="int" Mode="In" />
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Frizeri_GetProsjecnaOcjena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FrizerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Frizeri_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Frizeri_SelectByKorisnickoIme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Frizeri_SelectUposlenikByVrstaUsluge" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Frizeri_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FrizerID" Type="int" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="Opis" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ProfilnaSlika" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="SlikaThumb" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Klijenti_ProvjeriKorisnickoIme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Klijenti_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Klijenti_SelectByDatumRodjenja" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Klijenti_SelectByImePrezime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ImePrezime" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Klijenti_SelectByKorisnickoIme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Klijenti_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KlijentID" Type="int" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="DatumRodjenja" Type="date" Mode="In" />
+          <Parameter Name="Adresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="BrojTelefona" Type="nvarchar" Mode="In" />
+          <Parameter Name="Napomena" Type="nvarchar" Mode="In" />
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="TerminiCount" Type="int" Mode="In" />
+          <Parameter Name="Aktivan" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="esp_Nagrade_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Nagrade_SelectByNaziv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Nagrade_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NagradaID" Type="int" Mode="In" />
+          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
+          <Parameter Name="Od" Type="date" Mode="In" />
+          <Parameter Name="Do" Type="date" Mode="In" />
+        </Function>
+        <Function Name="esp_Recommender_TretmaniByKlijent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="klijentID" Type="int" Mode="In" />
+          <Parameter Name="tretmanID" Type="int" Mode="In" />
+          <Parameter Name="vrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Skladiste_GetSkladistaAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tretman" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Skladiste_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SkladisteID" Type="int" Mode="In" />
+          <Parameter Name="TretmanID" Type="int" Mode="In" />
+          <Parameter Name="Kolicina" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Takmicenja_GetPrijavljeniByTakmicenje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TakmicenjeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Takmicenja_GetTakmicenjaByDatum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="klijentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Takmicenja_GetTakmicenjaByKlijent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="klijentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Takmicenja_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Takmicenja_SelectByMjesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Mjesto" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Takmicenja_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TakmicenjeID" Type="int" Mode="In" />
+          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
+          <Parameter Name="Datum" Type="date" Mode="In" />
+          <Parameter Name="Mjesto" Type="nvarchar" Mode="In" />
+          <Parameter Name="Opis" Type="nvarchar" Mode="In" />
+          <Parameter Name="FrizerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_TerminiUsluge_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TerminID" Type="int" Mode="In" />
+          <Parameter Name="UslugaID" Type="int" Mode="In" />
+          <Parameter Name="KlijentID" Type="int" Mode="In" />
+          <Parameter Name="FrizerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Termini_GetAktivniTermini" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Termini_GetSlobodniByFrizer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="frizerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Termini_GetTerminiByKlijent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="klijentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Termini_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Datum" Type="date" Mode="In" />
+          <Parameter Name="Vrijeme" Type="time" Mode="In" />
+          <Parameter Name="KlijentImePrezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="FrizerImePrezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="NazivUsluge" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Termini_SelectAllD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Termini_SelectByDatum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Datum" Type="date" Mode="In" />
+        </Function>
+        <Function Name="esp_Termini_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TerminID" Type="int" Mode="In" />
+          <Parameter Name="Datum" Type="date" Mode="In" />
+          <Parameter Name="Vrijeme" Type="time" Mode="In" />
+          <Parameter Name="KlijentID" Type="int" Mode="In" />
+          <Parameter Name="FrizerID" Type="int" Mode="In" />
+          <Parameter Name="UslugaID" Type="int" Mode="In" />
+          <Parameter Name="Zauzeto" Type="bit" Mode="In" />
+          <Parameter Name="TretmanID" Type="int" Mode="In" />
+          <Parameter Name="OcijenjenaUsluga" Type="bit" Mode="In" />
+          <Parameter Name="OcijenjenTretman" Type="bit" Mode="In" />
+          <Parameter Name="ProsaoTermin" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="esp_Usluge_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Usluge_SelectByNaziv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NazivUsluge" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Usluge_SelectByVrstaUsluge" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Usluge_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UslugaID" Type="int" Mode="In" />
+          <Parameter Name="NazivUsluge" Type="nvarchar" Mode="In" />
+          <Parameter Name="TrajanjeMinute" Type="int" Mode="In" />
+          <Parameter Name="CijenaUsluge" Type="decimal" Mode="In" />
+          <Parameter Name="VrstaUslugeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_VrsteUsluga_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="FrizerskiSalonModelStoreContainer">
+          <EntitySet Name="DodatniTretmani" EntityType="Self.DodatniTretmani" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DodatniTretmaniOcjene" EntityType="Self.DodatniTretmaniOcjene" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Frizeri" EntityType="Self.Frizeri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klijenti" EntityType="Self.Klijenti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KlijentiNagrade" EntityType="Self.KlijentiNagrade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KlijentiTakmicenja" EntityType="Self.KlijentiTakmicenja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nagrade" EntityType="Self.Nagrade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skladiste" EntityType="Self.Skladiste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Takmicenja" EntityType="Self.Takmicenja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Termini" EntityType="Self.Termini" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usluge" EntityType="Self.Usluge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UslugeOcjene" EntityType="Self.UslugeOcjene" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VrsteUsluga" EntityType="Self.VrsteUsluga" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DodatniTr__Frize__4AB81AF0" Association="Self.FK__DodatniTr__Frize__4AB81AF0">
+            <End Role="Frizeri" EntitySet="Frizeri" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DodatniTr__Klije__4BAC3F29" Association="Self.FK__DodatniTr__Klije__4BAC3F29">
+            <End Role="Klijenti" EntitySet="Klijenti" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DodatniTr__Tretm__4CA06362" Association="Self.FK__DodatniTr__Tretm__4CA06362">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmani" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Takmicenj__Frize__5070F446" Association="Self.FK__Takmicenj__Frize__5070F446">
+            <End Role="Frizeri" EntitySet="Frizeri" />
+            <End Role="Takmicenja" EntitySet="Takmicenja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__FrizerI__5165187F" Association="Self.FK__Termini__FrizerI__5165187F">
+            <End Role="Frizeri" EntitySet="Frizeri" />
+            <End Role="Termini" EntitySet="Termini" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__Klijent__52593CB8" Association="Self.FK__Termini__Klijent__52593CB8">
+            <End Role="Klijenti" EntitySet="Klijenti" />
+            <End Role="Termini" EntitySet="Termini" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__Tretman__534D60F1" Association="Self.FK__Termini__Tretman__534D60F1">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmani" />
+            <End Role="Termini" EntitySet="Termini" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__UslugaI__5441852A" Association="Self.FK__Termini__UslugaI__5441852A">
+            <End Role="Usluge" EntitySet="Usluge" />
+            <End Role="Termini" EntitySet="Termini" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Frize__5629CD9C" Association="Self.FK__UslugeOcj__Frize__5629CD9C">
+            <End Role="Frizeri" EntitySet="Frizeri" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Klije__571DF1D5" Association="Self.FK__UslugeOcj__Klije__571DF1D5">
+            <End Role="Klijenti" EntitySet="Klijenti" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Uslug__5812160E" Association="Self.FK__UslugeOcj__Uslug__5812160E">
+            <End Role="Usluge" EntitySet="Usluge" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiNagrade_Klijenti" Association="Self.FK_KlijentiNagrade_Klijenti">
+            <End Role="Klijenti" EntitySet="Klijenti" />
+            <End Role="KlijentiNagrade" EntitySet="KlijentiNagrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiNagrade_Nagrade" Association="Self.FK_KlijentiNagrade_Nagrade">
+            <End Role="Nagrade" EntitySet="Nagrade" />
+            <End Role="KlijentiNagrade" EntitySet="KlijentiNagrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiTakmicenja_Klijenti" Association="Self.FK_KlijentiTakmicenja_Klijenti">
+            <End Role="Klijenti" EntitySet="Klijenti" />
+            <End Role="KlijentiTakmicenja" EntitySet="KlijentiTakmicenja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiTakmicenja_Takmicenja" Association="Self.FK_KlijentiTakmicenja_Takmicenja">
+            <End Role="Takmicenja" EntitySet="Takmicenja" />
+            <End Role="KlijentiTakmicenja" EntitySet="KlijentiTakmicenja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skladiste_Tretmani" Association="Self.FK_Skladiste_Tretmani">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmani" />
+            <End Role="Skladiste" EntitySet="Skladiste" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UslugeOcjene_Termini" Association="Self.FK_UslugeOcjene_Termini">
+            <End Role="Termini" EntitySet="Termini" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VrstaUsluge" Association="Self.FK_VrstaUsluge">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="Usluge" EntitySet="Usluge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VrstaUslugeDT" Association="Self.FK_VrstaUslugeDT">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmani" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VrtseUsluga_Frizeri" Association="Self.FK_VrtseUsluga_Frizeri">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="Frizeri" EntitySet="Frizeri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FrizerskiSalonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DodatniTretmani">
+          <Key>
+            <PropertyRef Name="TretmanID" />
+          </Key>
+          <Property Name="TretmanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivTretmana" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cijena" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Termini" Relationship="FrizerskiSalonModel.FK__Termini__Tretman__793DFFAF" FromRole="DodatniTretmani" ToRole="Termini" />
+          <NavigationProperty Name="DodatniTretmaniOcjene" Relationship="FrizerskiSalonModel.FK__DodatniTr__Tretm__7D0E9093" FromRole="DodatniTretmani" ToRole="DodatniTretmaniOcjene" />
+          <NavigationProperty Name="Skladiste" Relationship="FrizerskiSalonModel.FK_Skladiste_Tretmani" FromRole="DodatniTretmani" ToRole="Skladiste" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VrstaUslugeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VrsteUsluga" Relationship="FrizerskiSalonModel.FK_VrstaUslugeDT" FromRole="DodatniTretmani" ToRole="VrsteUsluga" />
+        </EntityType>
+        <EntityType Name="Frizeri">
+          <Key>
+            <PropertyRef Name="FrizerID" />
+          </Key>
+          <Property Name="FrizerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProfilnaSlika" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Takmicenjas" Relationship="Self.FK__Takmicenj__Frize__3B75D760" FromRole="Frizeri" ToRole="Takmicenja" />
+          <Property Name="LozinkaSalt" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LozinkaHash" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Termini" Relationship="FrizerskiSalonModel.FK__Termini__FrizerI__540C7B00" FromRole="Frizeri" ToRole="Termini" />
+          <Property Name="SlikaThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="DodatniTretmaniOcjene" Relationship="FrizerskiSalonModel.FK__DodatniTr__Frize__7E02B4CC" FromRole="Frizeri" ToRole="DodatniTretmaniOcjene" />
+          <NavigationProperty Name="UslugeOcjene" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Frize__02C769E9" FromRole="Frizeri" ToRole="UslugeOcjene" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VrstaUslugeID" Type="Int32" />
+          <NavigationProperty Name="VrsteUsluga" Relationship="FrizerskiSalonModel.FK_VrtseUsluga_Frizeri" FromRole="Frizeri" ToRole="VrsteUsluga" />
+        </EntityType>
+        <EntityType Name="Klijenti">
+          <Key>
+            <PropertyRef Name="KlijentID" />
+          </Key>
+          <Property Name="KlijentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="DateTime" Precision="0" />
+          <Property Name="Adresa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrojTelefona" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Napomena" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LozinkaSalt" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LozinkaHash" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Klijenti1" Relationship="FrizerskiSalonModel.FK_Klijenti_Klijenti" FromRole="Klijenti" ToRole="Klijenti1" />
+          <NavigationProperty Name="Klijenti2" Relationship="FrizerskiSalonModel.FK_Klijenti_Klijenti" FromRole="Klijenti1" ToRole="Klijenti" />
+          <NavigationProperty Name="Termini" Relationship="FrizerskiSalonModel.FK__Termini__Klijent__531856C7" FromRole="Klijenti" ToRole="Termini" />
+          <NavigationProperty Name="DodatniTretmaniOcjene" Relationship="FrizerskiSalonModel.FK__DodatniTr__Klije__7C1A6C5A" FromRole="Klijenti" ToRole="DodatniTretmaniOcjene" />
+          <NavigationProperty Name="UslugeOcjene" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Klije__00DF2177" FromRole="Klijenti" ToRole="UslugeOcjene" />
+          <NavigationProperty Name="KlijentiTakmicenja" Relationship="FrizerskiSalonModel.FK_KlijentiTakmicenja_Klijenti" FromRole="Klijenti" ToRole="KlijentiTakmicenja" />
+          <Property Name="TerminiCount" Type="Int32" />
+          <Property Name="Aktivan" Type="Boolean" />
+          <NavigationProperty Name="KlijentiNagrade" Relationship="FrizerskiSalonModel.FK_KlijentiNagrade_Klijenti" FromRole="Klijenti" ToRole="KlijentiNagrade" />
+        </EntityType>
+        <EntityType Name="Takmicenja">
+          <Key>
+            <PropertyRef Name="TakmicenjeID" />
+          </Key>
+          <Property Name="TakmicenjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mjesto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FrizerID" Type="Int32" />
+          <NavigationProperty Name="Frizeri" Relationship="Self.FK__Takmicenj__Frize__3B75D760" FromRole="Takmicenja" ToRole="Frizeri" />
+          <NavigationProperty Name="KlijentiTakmicenja" Relationship="FrizerskiSalonModel.FK_KlijentiTakmicenja_Takmicenja" FromRole="Takmicenja" ToRole="KlijentiTakmicenja" />
+        </EntityType>
+        <EntityType Name="Termini">
+          <Key>
+            <PropertyRef Name="TerminID" />
+          </Key>
+          <Property Name="TerminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vrijeme" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="KlijentID" Type="Int32" />
+          <Property Name="FrizerID" Type="Int32" />
+          <Property Name="UslugaID" Type="Int32" />
+          <NavigationProperty Name="Frizeri" Relationship="FrizerskiSalonModel.FK__Termini__FrizerI__540C7B00" FromRole="Termini" ToRole="Frizeri" />
+          <NavigationProperty Name="Klijenti" Relationship="FrizerskiSalonModel.FK__Termini__Klijent__531856C7" FromRole="Termini" ToRole="Klijenti" />
+          <NavigationProperty Name="Usluge" Relationship="FrizerskiSalonModel.FK__Termini__UslugaI__55009F39" FromRole="Termini" ToRole="Usluge" />
+          <Property Name="Zauzeto" Type="Boolean" />
+          <Property Name="TretmanID" Type="Int32" />
+          <NavigationProperty Name="DodatniTretmani" Relationship="FrizerskiSalonModel.FK__Termini__Tretman__793DFFAF" FromRole="Termini" ToRole="DodatniTretmani" />
+          <Property Name="OcijenjenaUsluga" Type="Boolean" />
+          <Property Name="OcijenjenTretman" Type="Boolean" />
+          <Property Name="prosaoTermin" Type="Boolean" />
+          <NavigationProperty Name="UslugeOcjene" Relationship="FrizerskiSalonModel.FK_UslugeOcjene_Termini" FromRole="Termini" ToRole="UslugeOcjene" />
+        </EntityType>
+        <Association Name="FK__Takmicenj__Frize__3B75D760">
+          <End Role="Frizeri" Type="Self.Frizeri" Multiplicity="0..1" />
+          <End Role="Takmicenja" Type="Self.Takmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="Takmicenja">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FrizerskiSalonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DodatniTretmanis" EntityType="Self.DodatniTretmani" />
+          <EntitySet Name="Frizeris" EntityType="Self.Frizeri" />
+          <EntitySet Name="Klijentis" EntityType="Self.Klijenti" />
+          <EntitySet Name="Takmicenjas" EntityType="Self.Takmicenja" />
+          <EntitySet Name="Terminis" EntityType="Self.Termini" />
+          <AssociationSet Name="FK__Takmicenj__Frize__3B75D760" Association="Self.FK__Takmicenj__Frize__3B75D760">
+            <End Role="Frizeri" EntitySet="Frizeris" />
+            <End Role="Takmicenja" EntitySet="Takmicenjas" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Klijenti_SelectAll" ReturnType="Collection(FrizerskiSalonModel.Klijenti_Result)" />
+          <FunctionImport Name="esp_Klijenti_SelectByKorisnickoIme" EntitySet="Klijentis" ReturnType="Collection(FrizerskiSalonModel.Klijenti)">
+          <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Klijenti_SelectByImePrezime" ReturnType="Collection(FrizerskiSalonModel.Klijenti_Result)">
+          <Parameter Name="ImePrezime" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Klijenti_Update">
+            <Parameter Name="KlijentID" Mode="In" Type="Int32" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="DatumRodjenja" Mode="In" Type="DateTime" />
+            <Parameter Name="Adresa" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="BrojTelefona" Mode="In" Type="String" />
+            <Parameter Name="Napomena" Mode="In" Type="String" />
+            <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+            <Parameter Name="LozinkaSalt" Mode="In" Type="String" />
+            <Parameter Name="LozinkaHash" Mode="In" Type="String" />
+            <Parameter Name="TerminiCount" Mode="In" Type="Int32" />
+            <Parameter Name="Aktivan" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Klijenti_Klijenti" Association="FrizerskiSalonModel.FK_Klijenti_Klijenti">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="Klijenti1" EntitySet="Klijentis" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Takmicenja_SelectAll" ReturnType="Collection(FrizerskiSalonModel.Takmicenja_Result)" />
+          <FunctionImport Name="esp_Takmicenja_SelectByMjesto" ReturnType="Collection(FrizerskiSalonModel.Takmicenja_Result)">
+          <Parameter Name="Mjesto" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Usluge" EntityType="FrizerskiSalonModel.Usluge" />
+          <FunctionImport Name="esp_Farbe_SelectAll" />
+          <FunctionImport Name="esp_Farbe_SelectByNaziv">
+          <Parameter Name="NazivFarbe" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Preparati_SelectAll" />
+          <FunctionImport Name="esp_Preparati_SelectByNaziv">
+          <Parameter Name="NazivPreparata" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Usluge_SelectAll" ReturnType="Collection(FrizerskiSalonModel.Usluge_Result)" />
+          <FunctionImport Name="esp_Usluge_SelectByNaziv" ReturnType="Collection(FrizerskiSalonModel.Usluge_Result)">
+          <Parameter Name="NazivUsluge" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmani_SelectAll" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Result)" />
+          <FunctionImport Name="esp_DodatniTretmani_SelectByNaziv" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Result)">
+          <Parameter Name="NazivTretmana" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Frizeri_SelectAll" ReturnType="Collection(FrizerskiSalonModel.Frizeri_Result)" />
+          <FunctionImport Name="esp_Termini_SelectAllD" ReturnType="Collection(FrizerskiSalonModel.Termini_Result)" />
+          <FunctionImport Name="esp_Termini_SelectByDatum" ReturnType="Collection(FrizerskiSalonModel.Termini_Result)">
+          <Parameter Name="Datum" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Termini_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
+            <Parameter Name="Vrijeme" Mode="In" Type="Time" />
+            <Parameter Name="KlijentImePrezime" Mode="In" Type="String" />
+            <Parameter Name="FrizerImePrezime" Mode="In" Type="String" />
+            <Parameter Name="NazivUsluge" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_TerminiUsluge_Insert">
+            <Parameter Name="TerminID" Mode="In" Type="Int32" />
+            <Parameter Name="UslugaID" Mode="In" Type="Int32" />
+            <Parameter Name="KlijentID" Mode="In" Type="Int32" />
+            <Parameter Name="FrizerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK__Termini__FrizerI__540C7B00" Association="FrizerskiSalonModel.FK__Termini__FrizerI__540C7B00">
+            <End Role="Frizeri" EntitySet="Frizeris" />
+            <End Role="Termini" EntitySet="Terminis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__Klijent__531856C7" Association="FrizerskiSalonModel.FK__Termini__Klijent__531856C7">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="Termini" EntitySet="Terminis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Termini__UslugaI__55009F39" Association="FrizerskiSalonModel.FK__Termini__UslugaI__55009F39">
+            <End Role="Usluge" EntitySet="Usluge" />
+            <End Role="Termini" EntitySet="Terminis" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Klijenti_SelectByDatumRodjenja" ReturnType="Collection(FrizerskiSalonModel.Klijenti_Result)" />
+          <FunctionImport Name="esp_Frizeri_Update">
+            <Parameter Name="FrizerID" Mode="In" Type="Int32" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+            <Parameter Name="LozinkaSalt" Mode="In" Type="String" />
+            <Parameter Name="LozinkaHash" Mode="In" Type="String" />
+            <Parameter Name="Opis" Mode="In" Type="String" />
+            <Parameter Name="ProfilnaSlika" Mode="In" Type="Binary" />
+            <Parameter Name="SlikaThumb" Mode="In" Type="Binary" />
+            <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Takmicenja_Update">
+            <Parameter Name="TakmicenjeID" Mode="In" Type="Int32" />
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
+            <Parameter Name="Mjesto" Mode="In" Type="String" />
+            <Parameter Name="Opis" Mode="In" Type="String" />
+            <Parameter Name="FrizerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Klijenti_ProvjeriKorisnickoIme" ReturnType="Collection(Boolean)">
+          <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Usluge_Update">
+            <Parameter Name="UslugaID" Mode="In" Type="Int32" />
+            <Parameter Name="NazivUsluge" Mode="In" Type="String" />
+            <Parameter Name="TrajanjeMinute" Mode="In" Type="Int32" />
+            <Parameter Name="CijenaUsluge" Mode="In" Type="Decimal" />
+            <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Termini_Update">
+            <Parameter Name="TerminID" Mode="In" Type="Int32" />
+            <Parameter Name="Datum" Mode="In" Type="DateTime" />
+            <Parameter Name="Vrijeme" Mode="In" Type="Time" />
+            <Parameter Name="KlijentID" Mode="In" Type="Int32" />
+            <Parameter Name="FrizerID" Mode="In" Type="Int32" />
+            <Parameter Name="UslugaID" Mode="In" Type="Int32" />
+            <Parameter Name="Zauzeto" Mode="In" Type="Boolean" />
+            <Parameter Name="TretmanID" Mode="In" Type="Int32" />
+            <Parameter Name="OcijenjenaUsluga" Mode="In" Type="Boolean" />
+            <Parameter Name="OcijenjenTretman" Mode="In" Type="Boolean" />
+            <Parameter Name="ProsaoTermin" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmani_Update">
+            <Parameter Name="TretmanID" Mode="In" Type="Int32" />
+            <Parameter Name="NazivTretmana" Mode="In" Type="String" />
+            <Parameter Name="Cijena" Mode="In" Type="Int32" />
+            <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Frizeri_SelectByKorisnickoIme" EntitySet="Frizeris" ReturnType="Collection(FrizerskiSalonModel.Frizeri)">
+          <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Termini_GetSlobodniByFrizer" ReturnType="Collection(FrizerskiSalonModel.Termini_Result2)">
+          <Parameter Name="frizerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK__Termini__Tretman__793DFFAF" Association="FrizerskiSalonModel.FK__Termini__Tretman__793DFFAF">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmanis" />
+            <End Role="Termini" EntitySet="Terminis" />
+          </AssociationSet>
+          <EntitySet Name="DodatniTretmaniOcjene" EntityType="FrizerskiSalonModel.DodatniTretmaniOcjene" />
+          <EntitySet Name="UslugeOcjene" EntityType="FrizerskiSalonModel.UslugeOcjene" />
+          <AssociationSet Name="FK__DodatniTr__Tretm__7D0E9093" Association="FrizerskiSalonModel.FK__DodatniTr__Tretm__7D0E9093">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmanis" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DodatniTr__Frize__7E02B4CC" Association="FrizerskiSalonModel.FK__DodatniTr__Frize__7E02B4CC">
+            <End Role="Frizeri" EntitySet="Frizeris" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DodatniTr__Klije__7C1A6C5A" Association="FrizerskiSalonModel.FK__DodatniTr__Klije__7C1A6C5A">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="DodatniTretmaniOcjene" EntitySet="DodatniTretmaniOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Frize__02C769E9" Association="FrizerskiSalonModel.FK__UslugeOcj__Frize__02C769E9">
+            <End Role="Frizeri" EntitySet="Frizeris" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Klije__00DF2177" Association="FrizerskiSalonModel.FK__UslugeOcj__Klije__00DF2177">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UslugeOcj__Uslug__01D345B0" Association="FrizerskiSalonModel.FK__UslugeOcj__Uslug__01D345B0">
+            <End Role="Usluge" EntitySet="Usluge" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Termini_GetTerminiByKlijent" ReturnType="Collection(FrizerskiSalonModel.Termini_Result3)">
+          <Parameter Name="klijentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Skladiste" EntityType="FrizerskiSalonModel.Skladiste" />
+          <AssociationSet Name="FK_Skladiste_Tretmani" Association="FrizerskiSalonModel.FK_Skladiste_Tretmani">
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmanis" />
+            <End Role="Skladiste" EntitySet="Skladiste" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Skladiste_GetSkladistaAll" ReturnType="Collection(FrizerskiSalonModel.Skladiste_Result)">
+          <Parameter Name="tretman" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="KlijentiTakmicenja" EntityType="FrizerskiSalonModel.KlijentiTakmicenja" />
+          <AssociationSet Name="FK_KlijentiTakmicenja_Klijenti" Association="FrizerskiSalonModel.FK_KlijentiTakmicenja_Klijenti">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="KlijentiTakmicenja" EntitySet="KlijentiTakmicenja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiTakmicenja_Takmicenja" Association="FrizerskiSalonModel.FK_KlijentiTakmicenja_Takmicenja">
+            <End Role="Takmicenja" EntitySet="Takmicenjas" />
+            <End Role="KlijentiTakmicenja" EntitySet="KlijentiTakmicenja" />
+          </AssociationSet>
+          <FunctionImport Name="Takmicenja_GetTakmicenjaByDatum" ReturnType="Collection(FrizerskiSalonModel.Takmicenja_GetTakmicenjaByDatum_Result)">
+            <Parameter Name="klijentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Takmicenja_GetTakmicenjaByDatum" EntitySet="Takmicenjas" ReturnType="Collection(FrizerskiSalonModel.Takmicenja)">
+          <Parameter Name="klijentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Skladiste_Update">
+            <Parameter Name="SkladisteID" Mode="In" Type="Int32" />
+            <Parameter Name="TretmanID" Mode="In" Type="Int32" />
+            <Parameter Name="Kolicina" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Takmicenja_GetTakmicenjaByKlijent" ReturnType="Collection(FrizerskiSalonModel.Takmicenja_Result)">
+          <Parameter Name="klijentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Termini_GetAktivniTermini" ReturnType="Collection(FrizerskiSalonModel.Termini_Result)" />
+          <FunctionImport Name="esp_Frizeri_GetProsjecnaOcjena" ReturnType="Collection(FrizerskiSalonModel.Frizeri_Result2)">
+          <Parameter Name="FrizerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Takmicenja_GetPrijavljeniByTakmicenje" ReturnType="Collection(FrizerskiSalonModel.Takmicenja_Report)">
+          <Parameter Name="TakmicenjeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmani_Recommender" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Result2)">
+          <Parameter Name="uslugaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmani_Ocjene" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Ocjene_Result)" />
+          <FunctionImport Name="esp_Recommender_TretmaniByKlijent" EntitySet="DodatniTretmanis" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani)">
+            <Parameter Name="klijentID" Mode="In" Type="Int32" />
+            <Parameter Name="tretmanID" Mode="In" Type="Int32" />
+            <Parameter Name="vrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmani_SearchByID" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Ocjene_Result)">
+          <Parameter Name="tretmanID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_UslugeOcjene_Termini" Association="FrizerskiSalonModel.FK_UslugeOcjene_Termini">
+            <End Role="Termini" EntitySet="Terminis" />
+            <End Role="UslugeOcjene" EntitySet="UslugeOcjene" />
+          </AssociationSet>
+          <EntitySet Name="VrsteUsluga" EntityType="FrizerskiSalonModel.VrsteUsluga" />
+          <AssociationSet Name="FK_VrstaUslugeDT" Association="FrizerskiSalonModel.FK_VrstaUslugeDT">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="DodatniTretmani" EntitySet="DodatniTretmanis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VrstaUsluge" Association="FrizerskiSalonModel.FK_VrstaUsluge">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="Usluge" EntitySet="Usluge" />
+          </AssociationSet>
+          <FunctionImport Name="esp_VrsteUsluga_SelectAll" ReturnType="Collection(FrizerskiSalonModel.VrsteUsluga_Result)" />
+          <FunctionImport Name="esp_Usluge_SelectByVrstaUsluge" ReturnType="Collection(FrizerskiSalonModel.Usluge_Result)">
+          <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_VrtseUsluga_Frizeri" Association="FrizerskiSalonModel.FK_VrtseUsluga_Frizeri">
+            <End Role="VrsteUsluga" EntitySet="VrsteUsluga" />
+            <End Role="Frizeri" EntitySet="Frizeris" />
+          </AssociationSet>
+          <EntitySet Name="KlijentiNagrade" EntityType="FrizerskiSalonModel.KlijentiNagrade" />
+          <EntitySet Name="Nagrade" EntityType="FrizerskiSalonModel.Nagrade" />
+          <AssociationSet Name="FK_KlijentiNagrade_Klijenti" Association="FrizerskiSalonModel.FK_KlijentiNagrade_Klijenti">
+            <End Role="Klijenti" EntitySet="Klijentis" />
+            <End Role="KlijentiNagrade" EntitySet="KlijentiNagrade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlijentiNagrade_Nagrade" Association="FrizerskiSalonModel.FK_KlijentiNagrade_Nagrade">
+            <End Role="Nagrade" EntitySet="Nagrade" />
+            <End Role="KlijentiNagrade" EntitySet="KlijentiNagrade" />
+          </AssociationSet>
+          <FunctionImport Name="esp_Nagrade_SelectAll" ReturnType="Collection(FrizerskiSalonModel.Nagrade_Result)" />
+          <FunctionImport Name="esp_Nagrade_Update">
+            <Parameter Name="NagradaID" Mode="In" Type="Int32" />
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Od" Mode="In" Type="DateTime" />
+            <Parameter Name="Do" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Nagrade_SelectByNaziv" ReturnType="Collection(FrizerskiSalonModel.Nagrade_Result)">
+          <Parameter Name="Naziv" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Frizeri_SelectUposlenikByVrstaUsluge" ReturnType="Collection(FrizerskiSalonModel.Frizeri_Result)">
+          <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_DodatniTretmaniOcjene_SelectTretmanByVrstaUsluge" ReturnType="Collection(FrizerskiSalonModel.DodatniTretmani_Ocjene_Result)">
+          <Parameter Name="VrstaUslugeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Klijenti_Result">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="DatumRodjenja" Nullable="true" />
+          <Property Type="String" Name="Adresa" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Napomena" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="esp_Klijenti_SelectByKorisnickoIme_Result">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="DatumRodjenja" Nullable="true" />
+          <Property Type="String" Name="Adresa" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Napomena" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="true" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilnaSlika" Nullable="true" />
+          <Property Type="String" Name="LozinkaSalt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="LozinkaHash" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="esp_Klijenti_SelectByImePrezime_Result">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="DatumRodjenja" Nullable="true" />
+          <Property Type="String" Name="Adresa" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Napomena" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <Association Name="FK_Klijenti_Klijenti">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="Klijenti1">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="esp_Proizvodi_SelectAll_Result">
+          <Property Type="String" Name="Sifra" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="false" />
+          <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="esp_Proizvodi_SelectBySifraNaziv_Result">
+          <Property Type="String" Name="Sifra" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="false" />
+          <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="esp_Takmicenja_SelectAll_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="FrizerID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="esp_Takmicenja_SelectByMjesto_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="FrizerID" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Usluge">
+          <Key>
+            <PropertyRef Name="UslugaID" />
+          </Key>
+          <Property Name="UslugaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivUsluge" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TrajanjeMinute" Type="Int32" Nullable="false" />
+          <Property Name="CijenaUsluge" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Termini" Relationship="FrizerskiSalonModel.FK__Termini__UslugaI__55009F39" FromRole="Usluge" ToRole="Termini" />
+          <NavigationProperty Name="UslugeOcjene" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Uslug__01D345B0" FromRole="Usluge" ToRole="UslugeOcjene" />
+          <Property Name="VrstaUslugeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VrsteUsluga" Relationship="FrizerskiSalonModel.FK_VrstaUsluge" FromRole="Usluge" ToRole="VrsteUsluga" />
+        </EntityType>
+        <ComplexType Name="esp_Farbe_SelectAll_Result">
+          <Property Type="Int32" Name="FarbaID" Nullable="false" />
+          <Property Type="String" Name="NazivFarbe" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="esp_Farbe_SelectByNaziv_Result">
+          <Property Type="Int32" Name="FarbaID" Nullable="false" />
+          <Property Type="String" Name="NazivFarbe" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="esp_Preparati_SelectAll_Result">
+          <Property Type="Int32" Name="PreparatID" Nullable="false" />
+          <Property Type="String" Name="NazivPreparata" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Preparati_SelectByNaziv_Result">
+          <Property Type="Int32" Name="PreparatID" Nullable="false" />
+          <Property Type="String" Name="NazivPreparata" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Usluge_SelectAll_Result">
+          <Property Type="Int32" Name="UslugaID" Nullable="false" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TrajanjeMinute" Nullable="false" />
+          <Property Type="Decimal" Name="CijenaUsluge" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="Usluge_Result">
+          <Property Type="Int32" Name="UslugaID" Nullable="false" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TrajanjeMinute" Nullable="false" />
+          <Property Type="Decimal" Name="CijenaUsluge" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="VrstaUsluge" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Usluge_SelectByNaziv_Result">
+          <Property Type="Int32" Name="UslugaID" Nullable="false" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TrajanjeMinute" Nullable="false" />
+          <Property Type="Decimal" Name="CijenaUsluge" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="esp_DodatniTretmani_SelectAll_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_DodatniTretmani_SelectByNaziv_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="DodatniTretmani_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+          <Property Type="String" Name="VrstaUsluge" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Frizeri_SelectAll_Result">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Termini_SelectAllD_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NazivFarbe" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="NazivPreparata" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Termini_SelectByDatum_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="NazivFarbe" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="NazivPreparata" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <Association Name="FK__Termini__FrizerI__540C7B00">
+          <End Type="FrizerskiSalonModel.Frizeri" Role="Frizeri" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.Termini" Role="Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__Klijent__531856C7">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.Termini" Role="Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Termini__UslugaI__55009F39">
+          <End Type="FrizerskiSalonModel.Usluge" Role="Usluge" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.Termini" Role="Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluge">
+              <PropertyRef Name="UslugaID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="UslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Takmicenja_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="esp_Klijenti_SelectByDatumRodjenja_Result">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="DatumRodjenja" Nullable="true" />
+          <Property Type="String" Name="Adresa" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Napomena" Nullable="true" MaxLength="500" />
+          <Property Type="Binary" Name="ProfilnaSlika" Nullable="true" />
+          <Property Type="String" Name="LozinkaSalt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="LozinkaHash" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Proizvodi_SelectBySifra_Result">
+          <Property Type="String" Name="Sifra" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="false" />
+          <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="esp_Frizeri_SelectByKorisnickoIme_Result">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilnaSlika" Nullable="true" />
+          <Property Type="String" Name="LozinkaSalt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="LozinkaHash" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="esp_Termini_GetSlobodniByFrizer_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="Frizer" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <ComplexType Name="Termini_Result2">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="Frizer" Nullable="false" MaxLength="51" />
+        </ComplexType>
+        <Association Name="FK__Termini__Tretman__793DFFAF">
+          <End Type="FrizerskiSalonModel.DodatniTretmani" Role="DodatniTretmani" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.Termini" Role="Termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="Termini">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DodatniTretmaniOcjene">
+          <Key>
+            <PropertyRef Name="TretmanOcjenaID" />
+          </Key>
+          <Property Name="TretmanOcjenaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KlijentID" Type="Int32" Nullable="false" />
+          <Property Name="TretmanID" Type="Int32" Nullable="false" />
+          <Property Name="Ocjena" Type="Int32" Nullable="false" />
+          <Property Name="FrizerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DodatniTretmani" Relationship="FrizerskiSalonModel.FK__DodatniTr__Tretm__7D0E9093" FromRole="DodatniTretmaniOcjene" ToRole="DodatniTretmani" />
+          <NavigationProperty Name="Frizeri" Relationship="FrizerskiSalonModel.FK__DodatniTr__Frize__7E02B4CC" FromRole="DodatniTretmaniOcjene" ToRole="Frizeri" />
+          <NavigationProperty Name="Klijenti" Relationship="FrizerskiSalonModel.FK__DodatniTr__Klije__7C1A6C5A" FromRole="DodatniTretmaniOcjene" ToRole="Klijenti" />
+        </EntityType>
+        <EntityType Name="UslugeOcjene">
+          <Key>
+            <PropertyRef Name="UslugaOcjenaID" />
+          </Key>
+          <Property Name="UslugaOcjenaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KlijentID" Type="Int32" Nullable="false" />
+          <Property Name="UslugaID" Type="Int32" Nullable="false" />
+          <Property Name="FrizerID" Type="Int32" Nullable="false" />
+          <Property Name="Ocjena" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Frizeri" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Frize__02C769E9" FromRole="UslugeOcjene" ToRole="Frizeri" />
+          <NavigationProperty Name="Klijenti" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Klije__00DF2177" FromRole="UslugeOcjene" ToRole="Klijenti" />
+          <NavigationProperty Name="Usluge" Relationship="FrizerskiSalonModel.FK__UslugeOcj__Uslug__01D345B0" FromRole="UslugeOcjene" ToRole="Usluge" />
+          <Property Name="TerminID" Type="Int32" />
+          <NavigationProperty Name="Termini" Relationship="FrizerskiSalonModel.FK_UslugeOcjene_Termini" FromRole="UslugeOcjene" ToRole="Termini" />
+        </EntityType>
+        <Association Name="FK__DodatniTr__Tretm__7D0E9093">
+          <End Type="FrizerskiSalonModel.DodatniTretmani" Role="DodatniTretmani" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.DodatniTretmaniOcjene" Role="DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DodatniTr__Frize__7E02B4CC">
+          <End Type="FrizerskiSalonModel.Frizeri" Role="Frizeri" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.DodatniTretmaniOcjene" Role="DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DodatniTr__Klije__7C1A6C5A">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.DodatniTretmaniOcjene" Role="DodatniTretmaniOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="DodatniTretmaniOcjene">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Frize__02C769E9">
+          <End Type="FrizerskiSalonModel.Frizeri" Role="Frizeri" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.UslugeOcjene" Role="UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frizeri">
+              <PropertyRef Name="FrizerID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="FrizerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Klije__00DF2177">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.UslugeOcjene" Role="UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UslugeOcj__Uslug__01D345B0">
+          <End Type="FrizerskiSalonModel.Usluge" Role="Usluge" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.UslugeOcjene" Role="UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluge">
+              <PropertyRef Name="UslugaID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="UslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="esp_Termini_GetTerminiByKlijent_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="Zauzeto" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Skladiste">
+          <Key>
+            <PropertyRef Name="SkladisteID" />
+          </Key>
+          <Property Name="SkladisteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TretmanID" Type="Int32" Nullable="false" />
+          <Property Name="Kolicina" Type="Int32" />
+          <NavigationProperty Name="DodatniTretmani" Relationship="FrizerskiSalonModel.FK_Skladiste_Tretmani" FromRole="Skladiste" ToRole="DodatniTretmani" />
+        </EntityType>
+        <Association Name="FK_Skladiste_Tretmani">
+          <End Type="FrizerskiSalonModel.DodatniTretmani" Role="DodatniTretmani" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.Skladiste" Role="Skladiste" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DodatniTretmani">
+              <PropertyRef Name="TretmanID" />
+            </Principal>
+            <Dependent Role="Skladiste">
+              <PropertyRef Name="TretmanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="esp_Skladiste_GetSkladistaAll_Result">
+          <Property Type="Int32" Name="SkladisteID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Skladiste_Result">
+          <Property Type="Int32" Name="SkladisteID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="KlijentiTakmicenja">
+          <Key>
+            <PropertyRef Name="KlijentID" />
+            <PropertyRef Name="TakmicenjeID" />
+          </Key>
+          <Property Name="KlijentID" Type="Int32" Nullable="false" />
+          <Property Name="TakmicenjeID" Type="Int32" Nullable="false" />
+          <Property Name="DatumPrijave" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Klijenti" Relationship="FrizerskiSalonModel.FK_KlijentiTakmicenja_Klijenti" FromRole="KlijentiTakmicenja" ToRole="Klijenti" />
+          <NavigationProperty Name="Takmicenja" Relationship="FrizerskiSalonModel.FK_KlijentiTakmicenja_Takmicenja" FromRole="KlijentiTakmicenja" ToRole="Takmicenja" />
+        </EntityType>
+        <Association Name="FK_KlijentiTakmicenja_Klijenti">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.KlijentiTakmicenja" Role="KlijentiTakmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="KlijentiTakmicenja">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiTakmicenja_Takmicenja">
+          <End Type="FrizerskiSalonModel.Takmicenja" Role="Takmicenja" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.KlijentiTakmicenja" Role="KlijentiTakmicenja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Takmicenja">
+              <PropertyRef Name="TakmicenjeID" />
+            </Principal>
+            <Dependent Role="KlijentiTakmicenja">
+              <PropertyRef Name="TakmicenjeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Takmicenja_GetTakmicenjaByDatum_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="esp_Takmicenja_GetTakmicenjaByDatum_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+        </ComplexType>
+        <ComplexType Name="esp_Takmicenja_GetTakmicenjaByKlijent_Result">
+          <Property Type="Int32" Name="TakmicenjeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="String" Name="Mjesto" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Opis" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="FrizerID" Nullable="true" />
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="Int32" Name="TakmicenjeID1" Nullable="false" />
+          <Property Type="DateTime" Name="DatumPrijave" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="asp_Termini_GetAktivniTermini_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Zauzeto" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Termini_GetAktivniTermini_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Zauzeto" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Frizeri_GetProsjecnaOcjena_Result">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="Naziv_usluge" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Ocjena_usluge" Nullable="true" />
+          <Property Type="String" Name="Naziv_tretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Ocjena_tretmana" Nullable="true" />
+          <Property Type="Decimal" Name="Prosječna_ocjena" Nullable="true" Precision="5" Scale="1" />
+        </ComplexType>
+        <ComplexType Name="Frizeri_Result2">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="Naziv_usluge" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Ocjena_usluge" Nullable="true" />
+          <Property Type="String" Name="Naziv_tretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Ocjena_tretmana" Nullable="true" />
+          <Property Type="Decimal" Name="Prosječna_ocjena" Nullable="true" Precision="5" Scale="1" />
+        </ComplexType>
+        <ComplexType Name="esp_Takmicenja_GetPrijavljeniByTakmicenje_Result">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="DatumPrijave" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Takmicenja_Report">
+          <Property Type="Int32" Name="KlijentID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="DatumPrijave" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="esp_DodatniTretmani_Recommender_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+          <Property Type="Int32" Name="ProsjecnaOcjena" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="DodatniTretmani_Result2">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+          <Property Type="Int32" Name="ProsjecnaOcjena" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="esp_DodatniTretmani_Ocjene_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Recommender_TretmaniByKlijent_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="DodatniTretmani_Ocjene_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Decimal" Name="ProsjecnaOcjenaDec" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="ProsjecnaOcjena" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="VrstaUslugeID" Nullable="false" />
+          </ComplexType>
+        <ComplexType Name="esp_DodatniTretmani_SearchByID_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="false" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Int32" Name="Cijena" Nullable="false" />
+          <Property Type="Decimal" Name="ProsjecnaOcjenaDec" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="ProsjecnaOcjena" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="Frizeri_Result">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilnaSlika" Nullable="true" />
+          <Property Type="Binary" Name="SlikaThumb" Nullable="true" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Decimal" Name="UslugaOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="TretmanOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="String" Name="VrstaUsluge" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Termini_Result">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Zauzeto" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OcijenjenaUsluga" Nullable="true" />
+          <Property Type="Boolean" Name="OcijenjenTretman" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Termini_Result3">
+          <Property Type="Int32" Name="TerminID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Time" Name="Vrijeme" Nullable="false" />
+          <Property Type="String" Name="KlijentImePrezime" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="FrizerImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="Zauzeto" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OcijenjenaUsluga" Nullable="true" />
+          <Property Type="Boolean" Name="OcijenjenTretman" Nullable="true" />
+          <Property Type="String" Name="VrijemeDoTermina" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Ocjena" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="Ocijenjeno" Nullable="true" />
+        </ComplexType>
+        <Association Name="FK_UslugeOcjene_Termini">
+          <End Type="FrizerskiSalonModel.Termini" Role="Termini" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.UslugeOcjene" Role="UslugeOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Termini">
+              <PropertyRef Name="TerminID" />
+            </Principal>
+            <Dependent Role="UslugeOcjene">
+              <PropertyRef Name="TerminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VrsteUsluga">
+          <Key>
+            <PropertyRef Name="VrstaUslugeID" />
+          </Key>
+          <Property Name="VrstaUslugeID" Type="Int32" Nullable="false" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DodatniTretmani" Relationship="FrizerskiSalonModel.FK_VrstaUslugeDT" FromRole="VrsteUsluga" ToRole="DodatniTretmani" />
+          <NavigationProperty Name="Usluge" Relationship="FrizerskiSalonModel.FK_VrstaUsluge" FromRole="VrsteUsluga" ToRole="Usluge" />
+          <NavigationProperty Name="Frizeri" Relationship="FrizerskiSalonModel.FK_VrtseUsluga_Frizeri" FromRole="VrsteUsluga" ToRole="Frizeri" />
+        </EntityType>
+        <Association Name="FK_VrstaUslugeDT">
+          <End Type="FrizerskiSalonModel.VrsteUsluga" Role="VrsteUsluga" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.DodatniTretmani" Role="DodatniTretmani" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="DodatniTretmani">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VrstaUsluge">
+          <End Type="FrizerskiSalonModel.VrsteUsluga" Role="VrsteUsluga" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.Usluge" Role="Usluge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="Usluge">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="esp_VrsteUsluga_SelectAll_Result">
+          <Property Type="Int32" Name="VrstaUslugeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_Usluge_SelectByVrstaUsluge_Result">
+          <Property Type="Int32" Name="UslugaID" Nullable="false" />
+          <Property Type="String" Name="NazivUsluge" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TrajanjeMinute" Nullable="false" />
+          <Property Type="Decimal" Name="CijenaUsluge" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="VrsteUsluga_Result">
+          <Property Type="Int32" Name="VrstaUslugeID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <Association Name="FK_VrtseUsluga_Frizeri">
+          <End Type="FrizerskiSalonModel.VrsteUsluga" Role="VrsteUsluga" Multiplicity="0..1" />
+          <End Type="FrizerskiSalonModel.Frizeri" Role="Frizeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VrsteUsluga">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Principal>
+            <Dependent Role="Frizeri">
+              <PropertyRef Name="VrstaUslugeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KlijentiNagrade">
+          <Key>
+            <PropertyRef Name="NagradaID" />
+            <PropertyRef Name="KlijentID" />
+          </Key>
+          <Property Name="NagradaID" Type="Int32" Nullable="false" />
+          <Property Name="KlijentID" Type="Int32" Nullable="false" />
+          <Property Name="DatumPrijave" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Klijenti" Relationship="FrizerskiSalonModel.FK_KlijentiNagrade_Klijenti" FromRole="KlijentiNagrade" ToRole="Klijenti" />
+          <NavigationProperty Name="Nagrade" Relationship="FrizerskiSalonModel.FK_KlijentiNagrade_Nagrade" FromRole="KlijentiNagrade" ToRole="Nagrade" />
+        </EntityType>
+        <EntityType Name="Nagrade">
+          <Key>
+            <PropertyRef Name="NagradaID" />
+          </Key>
+          <Property Name="NagradaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Od" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Do" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="KlijentiNagrade" Relationship="FrizerskiSalonModel.FK_KlijentiNagrade_Nagrade" FromRole="Nagrade" ToRole="KlijentiNagrade" />
+        </EntityType>
+        <Association Name="FK_KlijentiNagrade_Klijenti">
+          <End Type="FrizerskiSalonModel.Klijenti" Role="Klijenti" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.KlijentiNagrade" Role="KlijentiNagrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klijenti">
+              <PropertyRef Name="KlijentID" />
+            </Principal>
+            <Dependent Role="KlijentiNagrade">
+              <PropertyRef Name="KlijentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlijentiNagrade_Nagrade">
+          <End Type="FrizerskiSalonModel.Nagrade" Role="Nagrade" Multiplicity="1" />
+          <End Type="FrizerskiSalonModel.KlijentiNagrade" Role="KlijentiNagrade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nagrade">
+              <PropertyRef Name="NagradaID" />
+            </Principal>
+            <Dependent Role="KlijentiNagrade">
+              <PropertyRef Name="NagradaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="esp_Nagrade_SelectAll_Result">
+          <Property Type="Int32" Name="NagradaID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="Od" Nullable="false" />
+          <Property Type="DateTime" Name="Do" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Nagrade_Result">
+          <Property Type="Int32" Name="NagradaID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="Od" Nullable="false" />
+          <Property Type="DateTime" Name="Do" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Nagrade_SelectByNaziv_Result">
+          <Property Type="Int32" Name="NagradaID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="Od" Nullable="false" />
+          <Property Type="DateTime" Name="Do" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Frizeri_SelectUposlenikByVrstaUsluge_Result">
+          <Property Type="Int32" Name="FrizerID" Nullable="false" />
+          <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="ProfilnaSlika" Nullable="true" />
+          <Property Type="Binary" Name="SlikaThumb" Nullable="true" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Decimal" Name="UslugaOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="TretmanOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="Decimal" Name="ProsjecnaOcjena" Nullable="true" Precision="5" Scale="1" />
+          <Property Type="String" Name="VrstaUsluge" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="esp_DodatniTretmaniOcjene_SelectTretmanByVrstaUsluge_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Int32" Name="Cijena" Nullable="true" />
+          <Property Type="Decimal" Name="ProsjecnaOcjenaDec" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="ProsjecnaOcjena" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="DodatniTretmaniOcjeneVU_Result">
+          <Property Type="Int32" Name="TretmanID" Nullable="true" />
+          <Property Type="String" Name="NazivTretmana" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Opis" Nullable="true" />
+          <Property Type="Int32" Name="Cijena" Nullable="true" />
+          <Property Type="Decimal" Name="ProsjecnaOcjenaDec" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="ProsjecnaOcjena" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="VrstaUsluge" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FrizerskiSalonModelStoreContainer" CdmEntityContainer="FrizerskiSalonEntities">
+          <EntitySetMapping Name="DodatniTretmanis">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani">
+              <MappingFragment StoreEntitySet="DodatniTretmani">
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Frizeris">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Frizeri">
+              <MappingFragment StoreEntitySet="Frizeri">
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
+                <ScalarProperty Name="LozinkaHash" ColumnName="LozinkaHash" />
+                <ScalarProperty Name="LozinkaSalt" ColumnName="LozinkaSalt" />
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="ProfilnaSlika" ColumnName="ProfilnaSlika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klijentis">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Klijenti">
+              <MappingFragment StoreEntitySet="Klijenti">
+                <ScalarProperty Name="Aktivan" ColumnName="Aktivan" />
+                <ScalarProperty Name="TerminiCount" ColumnName="TerminiCount" />
+                <ScalarProperty Name="LozinkaHash" ColumnName="LozinkaHash" />
+                <ScalarProperty Name="LozinkaSalt" ColumnName="LozinkaSalt" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Takmicenjas">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Takmicenja">
+              <MappingFragment StoreEntitySet="Takmicenja">
+                <ScalarProperty Name="TakmicenjeID" ColumnName="TakmicenjeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terminis">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Termini">
+              <MappingFragment StoreEntitySet="Termini">
+                <ScalarProperty Name="prosaoTermin" ColumnName="prosaoTermin" />
+                <ScalarProperty Name="OcijenjenTretman" ColumnName="OcijenjenTretman" />
+                <ScalarProperty Name="OcijenjenaUsluga" ColumnName="OcijenjenaUsluga" />
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="Zauzeto" ColumnName="Zauzeto" />
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Klijenti_Result">
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_SelectByKorisnickoIme" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_SelectByKorisnickoIme">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_SelectByImePrezime" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_SelectByImePrezime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Klijenti_Result">
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_Update" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Takmicenja_Result">
+                <ScalarProperty Name="TakmicenjeID" ColumnName="TakmicenjeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_SelectByMjesto" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_SelectByMjesto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Takmicenja_Result">
+                <ScalarProperty Name="TakmicenjeID" ColumnName="TakmicenjeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Usluge">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Usluge">
+              <MappingFragment StoreEntitySet="Usluge">
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+                <ScalarProperty Name="CijenaUsluge" ColumnName="CijenaUsluge" />
+                <ScalarProperty Name="TrajanjeMinute" ColumnName="TrajanjeMinute" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Usluge_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_Usluge_SelectAll">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Usluge_Result">
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="TrajanjeMinute" ColumnName="TrajanjeMinute" />
+                <ScalarProperty Name="CijenaUsluge" ColumnName="CijenaUsluge" />
+                <ScalarProperty Name="VrstaUsluge" ColumnName="VrstaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Usluge_SelectByNaziv" FunctionName="FrizerskiSalonModel.Store.esp_Usluge_SelectByNaziv">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Usluge_Result">
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="TrajanjeMinute" ColumnName="TrajanjeMinute" />
+                <ScalarProperty Name="CijenaUsluge" ColumnName="CijenaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_SelectAll">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Result">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="VrstaUsluge" ColumnName="VrstaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_SelectByNaziv" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_SelectByNaziv">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Result">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Frizeri_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_Frizeri_SelectAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Frizeri_Result">
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="ProfilnaSlika" ColumnName="ProfilnaSlika" />
+                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="UslugaOcjena" ColumnName="UslugaOcjena" />
+                <ScalarProperty Name="TretmanOcjena" ColumnName="TretmanOcjena" />
+                <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />
+                <ScalarProperty Name="VrstaUsluge" ColumnName="VrstaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_SelectAllD" FunctionName="FrizerskiSalonModel.Store.esp_Termini_SelectAllD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Termini_Result">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="KlijentImePrezime" ColumnName="KlijentImePrezime" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="Zauzeto" ColumnName="Zauzeto" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="OcijenjenaUsluga" ColumnName="OcijenjenaUsluga" />
+                <ScalarProperty Name="OcijenjenTretman" ColumnName="OcijenjenTretman" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_SelectByDatum" FunctionName="FrizerskiSalonModel.Store.esp_Termini_SelectByDatum">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Termini_Result">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="KlijentImePrezime" ColumnName="KlijentImePrezime" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="Zauzeto" ColumnName="Zauzeto" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="OcijenjenaUsluga" ColumnName="OcijenjenaUsluga" />
+                <ScalarProperty Name="OcijenjenTretman" ColumnName="OcijenjenTretman" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_Insert" FunctionName="FrizerskiSalonModel.Store.esp_Termini_Insert" />
+          <FunctionImportMapping FunctionImportName="esp_TerminiUsluge_Insert" FunctionName="FrizerskiSalonModel.Store.esp_TerminiUsluge_Insert" />
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_SelectByDatumRodjenja" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_SelectByDatumRodjenja">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Klijenti_Result">
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Frizeri_Update" FunctionName="FrizerskiSalonModel.Store.esp_Frizeri_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_Update" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Klijenti_ProvjeriKorisnickoIme" FunctionName="FrizerskiSalonModel.Store.esp_Klijenti_ProvjeriKorisnickoIme" />
+          <FunctionImportMapping FunctionImportName="esp_Usluge_Update" FunctionName="FrizerskiSalonModel.Store.esp_Usluge_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Termini_Update" FunctionName="FrizerskiSalonModel.Store.esp_Termini_Update" />
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_Update" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Frizeri_SelectByKorisnickoIme" FunctionName="FrizerskiSalonModel.Store.esp_Frizeri_SelectByKorisnickoIme">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_GetSlobodniByFrizer" FunctionName="FrizerskiSalonModel.Store.esp_Termini_GetSlobodniByFrizer">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Termini_Result2">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="Frizer" ColumnName="Frizer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DodatniTretmaniOcjene">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmaniOcjene">
+              <MappingFragment StoreEntitySet="DodatniTretmaniOcjene">
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="TretmanOcjenaID" ColumnName="TretmanOcjenaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UslugeOcjene">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.UslugeOcjene">
+              <MappingFragment StoreEntitySet="UslugeOcjene">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="UslugaOcjenaID" ColumnName="UslugaOcjenaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_GetTerminiByKlijent" FunctionName="FrizerskiSalonModel.Store.esp_Termini_GetTerminiByKlijent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Termini_Result3">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="KlijentImePrezime" ColumnName="KlijentImePrezime" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="Zauzeto" ColumnName="Zauzeto" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="OcijenjenaUsluga" ColumnName="OcijenjenaUsluga" />
+                <ScalarProperty Name="OcijenjenTretman" ColumnName="OcijenjenTretman" />
+                <ScalarProperty Name="VrijemeDoTermina" ColumnName="VrijemeDoTermina" />
+                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="Ocijenjeno" ColumnName="Ocijenjeno" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Skladiste">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Skladiste">
+              <MappingFragment StoreEntitySet="Skladiste">
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="SkladisteID" ColumnName="SkladisteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Skladiste_GetSkladistaAll" FunctionName="FrizerskiSalonModel.Store.esp_Skladiste_GetSkladistaAll">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Skladiste_Result">
+                <ScalarProperty Name="SkladisteID" ColumnName="SkladisteID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="KlijentiTakmicenja">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.KlijentiTakmicenja">
+              <MappingFragment StoreEntitySet="KlijentiTakmicenja">
+                <ScalarProperty Name="DatumPrijave" ColumnName="DatumPrijave" />
+                <ScalarProperty Name="TakmicenjeID" ColumnName="TakmicenjeID" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_GetTakmicenjaByDatum" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_GetTakmicenjaByDatum">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Skladiste_Update" FunctionName="FrizerskiSalonModel.Store.esp_Skladiste_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_GetTakmicenjaByKlijent" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_GetTakmicenjaByKlijent">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Takmicenja_Result">
+                <ScalarProperty Name="TakmicenjeID" ColumnName="TakmicenjeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Termini_GetAktivniTermini" FunctionName="FrizerskiSalonModel.Store.esp_Termini_GetAktivniTermini">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Termini_Result">
+                <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Vrijeme" ColumnName="Vrijeme" />
+                <ScalarProperty Name="KlijentImePrezime" ColumnName="KlijentImePrezime" />
+                <ScalarProperty Name="FrizerImePrezime" ColumnName="FrizerImePrezime" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="Zauzeto" ColumnName="Zauzeto" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="OcijenjenaUsluga" ColumnName="OcijenjenaUsluga" />
+                <ScalarProperty Name="OcijenjenTretman" ColumnName="OcijenjenTretman" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Frizeri_GetProsjecnaOcjena" FunctionName="FrizerskiSalonModel.Store.esp_Frizeri_GetProsjecnaOcjena">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Frizeri_Result2">
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="Naziv_usluge" ColumnName="Naziv usluge" />
+                <ScalarProperty Name="Ocjena_usluge" ColumnName="Ocjena usluge" />
+                <ScalarProperty Name="Naziv_tretmana" ColumnName="Naziv tretmana" />
+                <ScalarProperty Name="Ocjena_tretmana" ColumnName="Ocjena tretmana" />
+                <ScalarProperty Name="Prosječna_ocjena" ColumnName="Prosječna ocjena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Takmicenja_GetPrijavljeniByTakmicenje" FunctionName="FrizerskiSalonModel.Store.esp_Takmicenja_GetPrijavljeniByTakmicenje">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Takmicenja_Report">
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="DatumPrijave" ColumnName="DatumPrijave" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_Recommender" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_Recommender">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Result2">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_Ocjene" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_Ocjene">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Ocjene_Result">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Recommender_TretmaniByKlijent" FunctionName="FrizerskiSalonModel.Store.esp_Recommender_TretmaniByKlijent">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmani_SearchByID" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmani_SearchByID">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Ocjene_Result">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="VrsteUsluga">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.VrsteUsluga">
+              <MappingFragment StoreEntitySet="VrsteUsluga">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_VrsteUsluga_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_VrsteUsluga_SelectAll">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.VrsteUsluga_Result">
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Usluge_SelectByVrstaUsluge" FunctionName="FrizerskiSalonModel.Store.esp_Usluge_SelectByVrstaUsluge">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Usluge_Result">
+                <ScalarProperty Name="UslugaID" ColumnName="UslugaID" />
+                <ScalarProperty Name="NazivUsluge" ColumnName="NazivUsluge" />
+                <ScalarProperty Name="TrajanjeMinute" ColumnName="TrajanjeMinute" />
+                <ScalarProperty Name="CijenaUsluge" ColumnName="CijenaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="KlijentiNagrade">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.KlijentiNagrade">
+              <MappingFragment StoreEntitySet="KlijentiNagrade">
+                <ScalarProperty Name="DatumPrijave" ColumnName="DatumPrijave" />
+                <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+                <ScalarProperty Name="NagradaID" ColumnName="NagradaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nagrade">
+            <EntityTypeMapping TypeName="FrizerskiSalonModel.Nagrade">
+              <MappingFragment StoreEntitySet="Nagrade">
+                <ScalarProperty Name="Do" ColumnName="Do" />
+                <ScalarProperty Name="Od" ColumnName="Od" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="NagradaID" ColumnName="NagradaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_Nagrade_SelectAll" FunctionName="FrizerskiSalonModel.Store.esp_Nagrade_SelectAll">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Nagrade_Result">
+                <ScalarProperty Name="NagradaID" ColumnName="NagradaID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Od" ColumnName="Od" />
+                <ScalarProperty Name="Do" ColumnName="Do" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Nagrade_Update" FunctionName="FrizerskiSalonModel.Store.esp_Nagrade_Update" />
+          <FunctionImportMapping FunctionImportName="esp_Nagrade_SelectByNaziv" FunctionName="FrizerskiSalonModel.Store.esp_Nagrade_SelectByNaziv">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Nagrade_Result">
+                <ScalarProperty Name="NagradaID" ColumnName="NagradaID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Od" ColumnName="Od" />
+                <ScalarProperty Name="Do" ColumnName="Do" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Frizeri_SelectUposlenikByVrstaUsluge" FunctionName="FrizerskiSalonModel.Store.esp_Frizeri_SelectUposlenikByVrstaUsluge">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.Frizeri_Result">
+                <ScalarProperty Name="FrizerID" ColumnName="FrizerID" />
+                <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="ProfilnaSlika" ColumnName="ProfilnaSlika" />
+                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="UslugaOcjena" ColumnName="UslugaOcjena" />
+                <ScalarProperty Name="TretmanOcjena" ColumnName="TretmanOcjena" />
+                <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />
+                <ScalarProperty Name="VrstaUsluge" ColumnName="VrstaUsluge" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_DodatniTretmaniOcjene_SelectTretmanByVrstaUsluge" FunctionName="FrizerskiSalonModel.Store.esp_DodatniTretmaniOcjene_SelectTretmanByVrstaUsluge">
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="FrizerskiSalonModel.DodatniTretmani_Ocjene_Result">
+                <ScalarProperty Name="TretmanID" ColumnName="TretmanID" />
+                <ScalarProperty Name="NazivTretmana" ColumnName="NazivTretmana" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ProsjecnaOcjenaDec" ColumnName="ProsjecnaOcjenaDec" />
+                <ScalarProperty Name="ProsjecnaOcjena" ColumnName="ProsjecnaOcjena" />
+                <ScalarProperty Name="VrstaUslugeID" ColumnName="VrstaUslugeID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

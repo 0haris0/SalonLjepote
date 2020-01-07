@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.PregledTretmana">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Picker x:Name="vrstaUslugePicker" Title="Odaberite vrstu usluge" SelectedIndexChanged="vrstaUslugePicker_SelectedIndexChanged"></Picker>
+                
+                <ListView x:Name="listaTretmana" RowHeight="100" ItemTapped="listaTretmana_ItemTapped" Margin="0,30,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding NazivTretmana}" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" FontSize="16"></Label>
+                                    <Label Text="{Binding Cijena, StringFormat='Cijena: {0} KM'}" FontAttributes="Italic" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding ProsjecnaOcjena, StringFormat='Prosječna ocjena: {0}'}" FontAttributes="Italic" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"></Label>
+                                
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

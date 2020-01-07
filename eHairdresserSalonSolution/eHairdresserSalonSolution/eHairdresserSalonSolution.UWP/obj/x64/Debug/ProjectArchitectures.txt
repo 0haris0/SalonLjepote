@@ -1,0 +1,2 @@
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\eHairdresserSalon_PCL.csproj;neutral
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalonSolution\eHairdresserSalonSolution.UWP\eHairdresserSalonSolution.UWP.csproj;x64

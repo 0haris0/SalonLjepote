@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.DetaljiTretmana">
+    <ContentPage.Content>
+        <ScrollView Margin="10">
+            <StackLayout Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout>
+                        <Label x:Name="nazivLabel" Grid.Row="0" Grid.Column="0" FontSize="28" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
+                        <Label x:Name="cijenaLabel" Grid.Row="1" Grid.Column="0" FontSize="20" HorizontalOptions="Center" FontAttributes="Italic"></Label>
+                        <Label x:Name="opisLabel" Grid.Row="2" Grid.Column="0" FontSize="20"></Label>
+                    </StackLayout>
+                </Grid>
+                <Button x:Name="btnKoristiTretman" Margin="8" Clicked="btnKoristiTretman_Clicked" HorizontalOptions="EndAndExpand" Text="Koristi tretman" BackgroundColor="BlueViolet"  FontAttributes="Bold" TextColor="White"></Button>
+               
+                <StackLayout>
+                    <Label />
+                    <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" Margin="2"/>
+                    <Label />
+                </StackLayout>
+
+                
+                <Label x:Name="stLbl" Text="Slični tretmani:" FontSize="20"></Label>
+                <ListView x:Name="listaPreporucenihTretmana" RowHeight="80" Margin="10" ItemTapped="listaPreporucenihTretmana_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding NazivTretmana}" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding Cijena, StringFormat='Cijena: {0} KM'}" FontAttributes="Italic" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                    <Label Text="{Binding ProsjecnaOcjena, StringFormat='Prosječna ocjena: {0}'}" FontAttributes="Italic" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

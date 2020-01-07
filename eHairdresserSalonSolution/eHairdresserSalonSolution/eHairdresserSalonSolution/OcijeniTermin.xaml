@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.OcijeniTermin">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Margin="10">
+            <Label Text="Ocjene za frizera" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center" ></Label>
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label x:Name="uslugaLabel" Text="Ocijeni uslugu(1-5):" VerticalTextAlignment="Center" FontSize="16"></Label>
+            <Entry x:Name="uslugaInput" WidthRequest="150" ></Entry>
+
+            <Label x:Name="tretmanLabel" Text="Ocijeni tretman(1-5):" VerticalTextAlignment="Center" FontSize="16"></Label>
+                <Entry x:Name="tretmanInput" WidthRequest="150"></Entry>
+
+                <Button x:Name="sacuvajBtn" Text="Sačuvaj" Clicked="sacuvajBtn_Clicked" BackgroundColor="BlueViolet" TextColor="White" FontAttributes="Bold"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

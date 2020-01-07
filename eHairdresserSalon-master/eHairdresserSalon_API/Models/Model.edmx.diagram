@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f4c34e949664a2e867d137a02a0ee1a" Name="Diagram1">
+        <EntityTypeShape EntityType="FrizerskiSalonModel.DodatniTretmani" Width="1.5" PointX="3.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Frizeri" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Klijenti" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Takmicenja" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Termini" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__Takmicenj__Frize__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_Klijenti_Klijenti" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Usluge" PointX="7.75" PointY="3.625" Width="1.5" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__Termini__FrizerI__540C7B00" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__Termini__Klijent__531856C7" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__Termini__UslugaI__55009F39" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__Termini__Tretman__793DFFAF" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.DodatniTretmaniOcjene" Width="1.5" PointX="6" PointY="13" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.UslugeOcjene" Width="1.5" PointX="10" PointY="8.25" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__DodatniTr__Tretm__7D0E9093" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__DodatniTr__Frize__7E02B4CC" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__DodatniTr__Klije__7C1A6C5A" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__UslugeOcj__Frize__02C769E9" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__UslugeOcj__Klije__00DF2177" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK__UslugeOcj__Uslug__01D345B0" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Skladiste" Width="1.5" PointX="6" PointY="19.625" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_Skladiste_Tretmani" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.KlijentiTakmicenja" Width="1.5" PointX="8.25" PointY="14.125" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_KlijentiTakmicenja_Klijenti" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_KlijentiTakmicenja_Takmicenja" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_UslugeOcjene_Termini" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.VrsteUsluga" Width="1.5" PointX="4.25" PointY="11.5" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_VrstaUslugeDT" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_VrstaUsluge" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_VrtseUsluga_Frizeri" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.KlijentiNagrade" Width="1.5" PointX="3.375" PointY="7.625" />
+        <EntityTypeShape EntityType="FrizerskiSalonModel.Nagrade" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_KlijentiNagrade_Klijenti" />
+        <AssociationConnector Association="FrizerskiSalonModel.FK_KlijentiNagrade_Nagrade" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

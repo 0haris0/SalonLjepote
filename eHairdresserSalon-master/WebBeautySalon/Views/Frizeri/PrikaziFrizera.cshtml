@@ -1,0 +1,26 @@
+﻿@model IEnumerable<eHairdresserSalon_API.Models.>
+
+@{
+    Layout = null;
+    var frizer = ViewData["frizer"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PrikaziFrizera</title>
+</head>
+<body>
+    
+        <tr class="frizer">
+            <td>
+            @foreach(var item in Model)
+            {
+                @item.KorisnickoIme
+            }
+        </tr>
+    }
+</body>
+</html>

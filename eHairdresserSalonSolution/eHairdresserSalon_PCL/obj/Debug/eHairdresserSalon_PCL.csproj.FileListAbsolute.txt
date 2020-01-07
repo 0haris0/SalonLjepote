@@ -1,0 +1,185 @@
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CoreCompileInputs.cache
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Naida Demirovic\source\repos\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CoreCompileInputs.cache
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+E:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CoreCompileInputs.cache
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\RSII-SeminarskiRad-150090\Aplikacija-150090\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\Users\SEDEMIROVICN\source\repos\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\BeautySalon\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\Naida\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll.config
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\eHairdresserSalon_PCL.pdb
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PCLCrypto.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.BCrypt.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Kernel32.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.NCrypt.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\PInvoke.Windows.Core.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\bin\Debug\Validation.xml
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.App.config
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csprojAssemblyReference.cache
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.csproj.CopyComplete
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.dll
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\obj\Debug\eHairdresserSalon_PCL.pdb

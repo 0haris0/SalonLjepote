@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.Registracija">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  Padding="10" VerticalOptions="CenterAndExpand" Margin="10">
+                <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Registracija @ eHairdresserSalon" FontSize="25" HorizontalTextAlignment="Center" Grid.ColumnSpan="2"></Label>
+                    <Label Text="*Ime:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="1"></Label>
+                    <Entry x:Name="imeInput" Grid.Row="1" Grid.Column="1"></Entry>
+
+                    <Label Text="*Prezime:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="2"></Label>
+                    <Entry x:Name="prezimeInput" Grid.Row="2" Grid.Column="1"></Entry>
+
+                    <Label Text="Datum rodjenja:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="3"></Label>
+                    <DatePicker x:Name="datumRodjenjaInput" MinimumDate="01/01/1940" MaximumDate="01/01/2015" Date="01/01/1991" Grid.Row="3" Grid.Column="1"></DatePicker>
+
+                    <Label Text="Adresa:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="4"></Label>
+                    <Entry x:Name="adresaInput" Grid.Row="4" Grid.Column="1"></Entry>
+
+                    <Label Text="Email:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="5"></Label>
+                    <Entry x:Name="emailInput" Grid.Row="5" Grid.Column="1"></Entry>
+
+                    <Label Text="Telefon:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="6"></Label>
+                    <Entry x:Name="telefonInput" Grid.Row="6" Grid.Column="1"></Entry>
+
+                    <Label Text="Napomena:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="7"></Label>
+                    <Entry x:Name="napomenaInput" Grid.Row="7" Grid.Column="1"></Entry>
+
+                    <Label Text="*Korisnicko ime:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="8"></Label>
+                    <Entry x:Name="korisnickoImeInput" Grid.Row="8" Grid.Column="1"></Entry>
+
+                    <Label Text="*Lozinka:" VerticalTextAlignment="Center" FontSize="18" Grid.Row="9"></Label>
+                    <Entry x:Name="lozinkaInput" Grid.Row="9" IsPassword="True" Grid.Column="1"></Entry>
+
+                    <Label x:Name="errorMsgLbl" IsVisible="False" Text="*Obavezna polja"  Grid.Row="10" Grid.Column="0"></Label>
+
+                    <Button x:Name="registracijaButton" Text="Registracija" Grid.Row="10" Grid.Column="1" Clicked="registracijaButton_Clicked"></Button>
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

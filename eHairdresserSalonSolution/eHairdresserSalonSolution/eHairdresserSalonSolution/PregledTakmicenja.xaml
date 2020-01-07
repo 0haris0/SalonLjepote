@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eHairdresserSalonSolution.PregledTakmicenja">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label x:Name="errLabel" IsVisible="false" Text="Trenutno nema aktivnih takmičenja." TextColor="Red" FontSize="20" HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand"></Label>
+            <ListView x:Name="listaTakmicenja" RowHeight="220">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Naziv}" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Mjesto}" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                <Label Text="{Binding Datum, StringFormat='{}{0:dd/MM/yyyy}'}" FontAttributes="Italic" Grid.Row="2" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+                                <Label Text="{Binding Opis}" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Start"></Label>
+
+                                <Button x:Name="PrijaviSeBtn" Grid.Row="4" Grid.Column="0" Text="Prijavi se" HorizontalOptions="EndAndExpand" BackgroundColor="BlueViolet" TextColor="White" FontAttributes="Bold" Clicked="PrijaviSeBtn_Clicked"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,75 @@
+﻿@using eHairdresserSalon_API.Models;
+@model IEnumerable<eHairdresserSalon_API.Models.Usluge_Result>
+@{
+    List<eHairdresserSalon_API.Models.VrsteUsluga> vrste = (List<eHairdresserSalon_API.Models.VrsteUsluga>)ViewData["vrste"];
+    int odabranaVrsta = (int)ViewData["odabranaVrsta"];
+    string naslovVrsta = (string)ViewData["naslovVrsta"];
+}
+
+    <head>
+        <title>Usluge</title>
+
+    </head>
+<body>
+    <form>
+        <div class="row" style="padding-bottom:2px; padding-top:15px">
+            <div class="col-lg-6">
+                <h4 class="test">Usluge</h4>
+            </div>
+            @*<div class="col-sm-0">
+                    <input name="vrstaId" style="width:15px" value="@odabranaVrsta"  />
+                </div>*@
+            <div class="col-lg-6 ">
+                <select name="vrstaId" class="form-control" asp-controller="Usluge" asp-action="Index" onchange="this.form.submit();">
+                    @foreach (var usluge in vrste)
+                    {
+                        <option value="@usluge.VrstaUslugeID">@usluge.Naziv</option>
+
+                    }
+                </select>
+
+                @*<select name="vrstaId" class="form-control">
+
+                        <option selected value="1">Odaberi kategoriju</option>
+                        <option value="1">Frizerske usluge</option>
+                        <option value="2">Kozmetičke usluge	</option>
+                    </select>*@
+            </div>
+        </div>
+    </form>
+
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Naziv usluge</th>
+                        <th scope="col">Vrsta usluge</th>
+                        <th scope="col">Cijena usluge</th>
+                        <th scope="col">Trajanje</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NazivUsluge</td>
+                            <td>@item.VrstaUsluge</td>
+                            <td>@item.CijenaUsluge KM</td>
+                            <td>@item.TrajanjeMinute min</td>
+                            <td>
+                                <button class="btn btn-secondary">Uredi</button>
+                                <button class="btn btn-success">Pregledaj</button>
+                            </td>
+                            <td><button class="btn btn-danger">Obrisi</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>

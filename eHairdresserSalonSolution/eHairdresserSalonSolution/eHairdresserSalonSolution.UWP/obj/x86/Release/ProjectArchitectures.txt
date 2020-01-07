@@ -1,0 +1,2 @@
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalon_PCL\eHairdresserSalon_PCL.csproj;neutral
+C:\Users\haris\Desktop\SalonLjepote\eHairdresserSalonSolution\eHairdresserSalonSolution\eHairdresserSalonSolution.UWP\eHairdresserSalonSolution.UWP.csproj;x86
